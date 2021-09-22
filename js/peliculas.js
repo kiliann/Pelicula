@@ -9,9 +9,9 @@ class Pelicula {
     this.titulo = 'Tiroteo en Missippi'
     this.pueblo = new Pueblo('TodoPolvo', 'muy polovoriento, en mitad del desierto')
     this.narrador = new Narrador()
-    this.maria = new PersonajesBuenos('Maria')
-    this.paco = new PersonajesBuenos('Paco')
-    this.morgan = new PersonajesMalos('Morgan')
+    this.maria = new PersonajesBuenos('Maria', 6)
+    this.paco = new PersonajesBuenos('Paco', 6)
+    this.morgan = new PersonajesMalos('Morgan', 6)
     this.iniciar()
   }
   iniciar(){
@@ -24,6 +24,18 @@ class Pelicula {
     this.morgan.hablar('¡Eh tu! ¡Prigado! Dame tu caballo y la cartera')
     this.paco.hablar('No quiero son mias, largate de aquí')
     this.narrador.hablar(`Morgan apunta a ${this.paco.nombre}`)
+    this.morgan.hablar('Estate quieto o te disparo')
+    this.narrador.hablar(`${this.paco.nombre} salio a correr`)
+    this.morgan.disparo(`${this.morgan.nombre}`)
+    this.morgan.disparo(`${this.morgan.nombre}`)
+    this.morgan.disparo(`${this.morgan.nombre}`)
+    this.morgan.disparo(`${this.morgan.nombre}`)
+    this.morgan.disparo(`${this.morgan.nombre}`)
+    this.morgan.disparo(`${this.morgan.nombre}`)
+    this.morgan.disparo(`${this.morgan.nombre}`)
+    this.morgan.disparo()
+
+
 
   }
 }
@@ -42,14 +54,20 @@ class Narrador {
   }
 }
 
-class arma{
-
+class Arma{
+  disparo(){
+    document.write('PUMM')
+  }
+  sinBalas(){
+    document.write('Click')
+  }
 }
+
 class Personajes {
   constructor(nombre,balas) {
     this.nombre = nombre
     this.balas = balas
-    this.arma = new arma(this.balas)
+    this.arma = new Arma(this.balas)
 
   }
   hablar(texto){
@@ -61,11 +79,30 @@ class PersonajesBuenos extends Personajes{
   hablar(texto){
     document.write(`<p class="personaje"><span>${this.nombre}:</span> ${texto}</p>`)
   }
+  disparo(balas){
+
+    if(this.balas==0){
+      document.write(`<p class="Personajes">¡Click!</p>`)
+      this.balas=0
+    }else {
+      document.write(`<p class="Personajes">¡PUMM!</p>`)
+      this.balas--
+    }
+  }
 }
 // uso de la herencias tiene que ser un tipo de la clase padre y hay que tener cuidado
 class PersonajesMalos extends Personajes{
   hablar(texto){
     document.write(`<p class="malo"><span>${this.nombre}:</span> ${texto}</p>`)
+  }
+  disparo(balas){
+    if(this.balas==0){
+      document.write(`<p class="malo">¡Click!</p>`)
+      this.balas=0
+    }else {
+      document.write(`<p class="malo">¡PUMM!</p>`)
+      this.balas--
+    }
   }
 }
 
