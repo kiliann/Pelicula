@@ -30,10 +30,31 @@ class Pelicula {
     this.morgan.disparo(`${this.morgan.nombre}`)
     this.morgan.disparo(`${this.morgan.nombre}`)
     this.morgan.disparo(`${this.morgan.nombre}`)
-    this.morgan.disparo(`${this.morgan.nombre}`)
+    this.paco.recibiounbalazo()
     this.morgan.disparo(`${this.morgan.nombre}`)
     this.morgan.disparo(`${this.morgan.nombre}`)
     this.morgan.disparo()
+    this.morgan.disparo()
+    this.narrador.hablar(`${this.morgan.nombre} vacio el cargador, se quedo sin balas y ${this.paco.nombre} recibio un tiro en la pierna y se callo`)
+    this.narrador.hablar(`${this.maria.nombre} aparecio por detras de ${this.morgan.nombre}`)
+    this.maria.hablar(`Alto atracador`)
+    this.maria.disparo()
+    this.morgan.recibiounbalazo()
+    this.maria.disparo()
+    this.morgan.recibiounbalazo()
+    this.maria.disparo()
+    this.morgan.recibiounbalazo()
+    this.maria.disparo()
+    this.narrador.hablar(`${this.morgan.nombre} recibio tres disparos por la espalda y callo al suelo desangrandose`)
+    this.maria.hablar(`Socorro Socorro`)
+    this.maria.hablar(`${this.paco.nombre} esta bien?`)
+    this.paco.hablar('Gracias por salvarme la vida')
+    this.narrador.hablar(`${this.morgan.nombre} se moria desangrado mientras llegaba la ambulacia para salvar a ${this.paco.nombre}`)
+    this.narrador.hablar(`FIN`)
+
+
+
+
 
 
 
@@ -82,12 +103,16 @@ class PersonajesBuenos extends Personajes{
   disparo(balas){
 
     if(this.balas==0){
-      document.write(`<p class="Personajes">¡Click!</p>`)
+      document.write(`<p class="personaje">¡Click!</p>`)
       this.balas=0
     }else {
-      document.write(`<p class="Personajes">¡PUMM!</p>`)
+      document.write(`<p class="personaje">¡PUMM!</p>`)
       this.balas--
     }
+  }
+  recibiounbalazo(){
+    document.write(`<p class="personaje"><span>${this.nombre}:</span> ¡AYYYY!</p>`)
+
   }
 }
 // uso de la herencias tiene que ser un tipo de la clase padre y hay que tener cuidado
@@ -103,6 +128,10 @@ class PersonajesMalos extends Personajes{
       document.write(`<p class="malo">¡PUMM!</p>`)
       this.balas--
     }
+  }
+  recibiounbalazo(){
+    document.write(`<p class="malo"><span>${this.nombre}:</span> ¡AYYYY!</p>`)
+
   }
 }
 
