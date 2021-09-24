@@ -121,7 +121,7 @@ class PersonajesMalos extends Personajes{
     document.write(`<p class="malo"><span>${this.nombre}:</span> ${texto}</p>`)
   }
   disparo(balas){
-    if(this.balas==0){
+    if(this.balas<=0){
       document.write(`<p class="malo">¡Click!</p>`)
       this.balas=0
     }else {
